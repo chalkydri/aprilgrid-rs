@@ -23,16 +23,18 @@ exclude = [
 ]
 
 [dependencies]
-faer = "0.21.5"
-glam = "0.30.0"
-image = "0.25.4"
-imageproc = "0.25.0"
+faer = { version = "0.21.5", default-features = false, features = ["rayon"] }
+glam = { version = "0.30.0", default-features = false, features = ["fast-math", "std"] }
+image = { version = "0.25.4", default-features = false, features = ["rayon"], optional = true }
+imageproc = { version = "0.25.0", default-features = false, features = ["rayon"], optional = true }
 itertools = "0.14.0"
-kiddo = "5.0.3"
+kiddo = { version = "5.0.3", default-features = false }
 kornia = { version = "0.1.8", optional = true }
 rand = "0.9.0"
 
 [features]
+default = ["image"]
+image = ["dep:image", "dep:imageproc"]
 kornia = ["dep:kornia"]
 
 [dev-dependencies]
