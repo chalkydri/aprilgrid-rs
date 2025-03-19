@@ -4,7 +4,7 @@ mod tests {
     use image::ImageReader;
 
     macro_rules! detector_tests {
-        ($($name:ident: $value:expr,)*) => {
+        ($($name:ident: $value:expr_2021,)*) => {
         $(
             #[test]
             fn $name() {

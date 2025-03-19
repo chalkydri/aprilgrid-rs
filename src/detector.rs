@@ -584,11 +584,11 @@ pub fn try_find_best_board(refined: &[Saddle]) -> Option<Vec<[usize; 4]>> {
         }
         count += 1;
     }
-    if let Some(mut best_board) = best_board_option {
+    match best_board_option { Some(mut best_board) => {
         best_board.try_fix_missing();
         let tag_idxs: Vec<[usize; 4]> = best_board.all_tag_indexes();
         Some(tag_idxs)
-    } else {
+    } _ => {
         None
-    }
+    }}
 }
